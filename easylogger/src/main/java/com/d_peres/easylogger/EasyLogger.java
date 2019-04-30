@@ -2,6 +2,8 @@ package com.d_peres.easylogger;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 /**
  * Log utility to improve code readability
  */
@@ -17,8 +19,8 @@ public class EasyLogger {
 	 * @param primary_tag   used to filter logs from various sources in one logcat filter
 	 * @param secondary_tag used to identify from where the log message came
 	 */
-	public EasyLogger(String primary_tag, String secondary_tag) {
-		new EasyLogger(primary_tag, secondary_tag, null);
+	public EasyLogger(@NonNull String primary_tag, String secondary_tag) {
+		this(primary_tag, secondary_tag, null);
 	}
 	
 	/**
