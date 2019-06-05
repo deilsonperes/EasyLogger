@@ -17,6 +17,16 @@ public class EasyLogger {
 	 * Creates a new instance of EasyLogger
 	 *
 	 * @param primary_tag   used to filter logs from various sources in one logcat filter
+	 * @param secondary_tag uses the  'Class.getSimpleName()' method to determine the secondary tag
+	 */
+	public EasyLogger(@NonNull String primary_tag, Class secondary_tag) {
+		this(primary_tag, secondary_tag.getSimpleName(), null);
+	}
+	
+	/**
+	 * Creates a new instance of EasyLogger
+	 *
+	 * @param primary_tag   used to filter logs from various sources in one logcat filter
 	 * @param secondary_tag used to identify from where the log message came
 	 */
 	public EasyLogger(@NonNull String primary_tag, String secondary_tag) {
@@ -32,7 +42,7 @@ public class EasyLogger {
 	 */
 	public EasyLogger(String primary_tag, String secondary_tag, BuildConfig config) {
 		if (config != null)
-			debug = config.DEBUG;//TODO: Check if this works
+			debug = config.DEBUG; //TODO: Check if this works
 		
 		if (secondary_tag != null && secondary_tag.length() > 0)
 			TAG = primary_tag + " " + secondary_tag;
@@ -79,7 +89,7 @@ public class EasyLogger {
 	 * @param log_message the message to be displayed
 	 * @param args        the arguments as in 'String.format()' (e.g.: %s for string, %d for integer, etc.)
 	 */
-	public void a(String log_message, Object... args) {
+	public void w(String log_message, Object... args) {
 		if (debug)
 			Log.w(TAG, String.format(log_message, args));
 	}
