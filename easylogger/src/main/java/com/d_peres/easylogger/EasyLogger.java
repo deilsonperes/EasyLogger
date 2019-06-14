@@ -128,4 +128,11 @@ public class EasyLogger {
 			Log.e(TAG, Log.getStackTraceString(error));
 		}
 	}
+	
+	/**
+	 * Disables any log messages from showing
+	 */
+	public void disable() {
+		debug = false;
+	}
 }
